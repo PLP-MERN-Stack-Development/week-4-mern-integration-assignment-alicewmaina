@@ -14,13 +14,13 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Please provide content'],
     },
-    featuredImage: {
+    image: {
       type: String,
       default: 'default-post.jpg',
     },
     slug: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
     },
     excerpt: {
@@ -97,4 +97,4 @@ PostSchema.methods.incrementViewCount = function () {
   return this.save();
 };
 
-module.exports = mongoose.model('Post', PostSchema); 
+module.exports = mongoose.model('Post', PostSchema);
